@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>  
+<p>Изменить друга, который взал книгу  {{ current_name }} почитать</p>
+<form method="post">  
+	{% csrf_token %}  
+	{{ form.as_p }}  
+	<input type="submit" value="Сохранить">  
+</form>  
+{% endblock %}

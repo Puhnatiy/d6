@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+ <div class="row justify-content-start w-50 m-2">
+    <div class="col-sm">
+<div class="alert alert-primary" role="alert">
+  Список друзей и книг у них
+</div>
+	<ul>
+		{% for friend in object_list %}
+		    <li>{{ friend.name }}</li>
+			     	 <ul>
+                    {% for book in friend.books.all %}
+					    <a href="book/{{book.id}}/">{{ book.title }}</a>
+                        <!--<li> {{ book.title }}</li>-->
+                    {% endfor %}
+                </ul>
+		{% endfor %}
+	</ul>
+	
+</div>
+</div>
+
+ <div class="row justify-content-start w-50 m-2">
+    <div class="col-sm">
+<div class="alert alert-primary" role="alert">
+  <a href='/friend/create'>Добавить друга</a>
+</div>
+</div>
+</div>
+
+ <div class="row justify-content-start w-50 m-2">
+    <div class="col-sm">
+<div class="alert alert-success" role="alert">
+  <a href='/books'>Перейти к списку всех книг и дать книгу другу</a>
+</div>
+</div>
+</div>
+
+</div>
+{% endblock %}

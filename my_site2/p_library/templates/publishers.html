@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+ <div class="row justify-content-start w-50 m-2">
+    <div class="col-sm">
+<div class="alert alert-primary" role="alert">
+  Список издательств
+</div>
+<ul class="list-group list-group-flush">
+    {% for pub in pubs %}
+	<li class="list-group-item">{{ pub.name }} 
+	 <ul class="list-group">
+                    {% for book in pub.books.all %}
+                        <li class="list-group-item"> {{ book.title }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+	</li>
+	{% endfor %}
+</ul>
+</div>
+</div>
+</div>
+{% endblock %}
